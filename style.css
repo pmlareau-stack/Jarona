@@ -1,0 +1,283 @@
+/* Jarona — le site de Fakefile
+   Les couleurs sont ici, en haut. Pour changer une couleur partout, change-la juste ici. */
+:root {
+  --fond: #07050f;
+  --fond-halo: #1c1240;
+  --texte: #ffffff;
+  --texte-doux: #b9b3d6;
+  --coeur: #ff2a3c;
+  --rose: #ff4fa3;
+  --jaune: #ffd23c;
+  --bleu: #36c8f0;
+  --vert: #4ee38f;
+  --mauve: #a77bff;
+  --orange: #ff8a3d;
+  --police: "Pixelify Sans", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--police);
+  color: var(--texte);
+  background: radial-gradient(ellipse at top, var(--fond-halo), var(--fond) 65%);
+  background-color: var(--fond);
+  overflow-x: hidden;
+}
+
+/* ---------- Le bouton de langue, en haut à droite ---------- */
+.haut {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.75rem 1rem 0;
+}
+
+.langue {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border: 3px solid var(--texte);
+  background: #000;
+  color: var(--texte);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.langue:hover,
+.langue:focus-visible {
+  color: var(--jaune);
+  border-color: var(--jaune);
+}
+
+/* ---------- Le centre de la page ---------- */
+.accueil {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 1rem;
+}
+
+/* Le grand titre, une couleur par lettre */
+.titre {
+  margin: 0;
+  font-size: clamp(3.75rem, 17vw, 8.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.lettre {
+  display: inline-block;
+  text-shadow: 0.06em 0.06em 0 rgba(0, 0, 0, 0.6);
+  animation: sauter 2.4s ease-in-out infinite;
+}
+
+.l1 { color: var(--rose); animation-delay: 0s; }
+.l2 { color: var(--jaune); animation-delay: 0.15s; }
+.l3 { color: var(--bleu); animation-delay: 0.3s; }
+.l4 { color: var(--vert); animation-delay: 0.45s; }
+.l5 { color: var(--mauve); animation-delay: 0.6s; }
+.l6 { color: var(--orange); animation-delay: 0.75s; }
+
+@keyframes sauter {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-0.15em); }
+}
+
+/* ---------- La boîte de dialogue ---------- */
+.dialogue {
+  width: 100%;
+  padding: 1.1rem 1.25rem;
+  border: 4px solid var(--texte);
+  background: #000;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.dialogue p {
+  margin: 0;
+}
+
+.dialogue p + p {
+  margin-top: 0.4rem;
+}
+
+.curseur {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  margin-left: 0.2em;
+  vertical-align: -0.12em;
+  background: var(--texte);
+  animation: clignoter 1s steps(1) infinite;
+}
+
+@keyframes clignoter {
+  50% { opacity: 0; }
+}
+
+/* ---------- Le bouton YouTube ---------- */
+.youtube {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border: 3px solid var(--texte);
+  background: #e00030;
+  color: var(--texte);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 5px 5px 0 #000;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.youtube:hover,
+.youtube:focus-visible {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 #000;
+}
+
+/* ---------- Le menu avec le cœur ---------- */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.35rem;
+  color: var(--jaune);
+}
+
+.menu li {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Le cœur saute d'un choix à l'autre */
+.coeur {
+  width: 1.4em;
+  color: var(--coeur);
+  opacity: 0;
+  animation: viser 4.5s steps(1) infinite;
+}
+
+.c1 { animation-delay: 0s; }
+.c2 { animation-delay: 1.5s; }
+.c3 { animation-delay: 3s; }
+
+@keyframes viser {
+  0% { opacity: 1; }
+  33.3% { opacity: 0; }
+}
+
+/* Un cœur qui ne bouge pas (quand il n'y a qu'un seul choix) */
+.coeur.fixe {
+  opacity: 1;
+  animation: none;
+}
+
+.lien-menu {
+  color: inherit;
+}
+
+.pied {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--texte-doux);
+}
+
+/* ---------- Les étoiles ---------- */
+.ciel {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.etoile {
+  position: absolute;
+  font-size: 1.5rem;
+  line-height: 1;
+  animation: scintiller 3s ease-in-out infinite;
+}
+
+.e1 { top: 9%; left: 7%; color: var(--jaune); }
+.e2 { top: 18%; right: 9%; color: var(--bleu); font-size: 2rem; animation-delay: -1s; }
+.e3 { top: 48%; left: 4%; color: var(--rose); animation-delay: -2s; }
+.e4 { bottom: 14%; right: 6%; color: var(--mauve); font-size: 1.8rem; animation-delay: -0.5s; }
+.e5 { bottom: 8%; left: 18%; color: var(--vert); animation-delay: -1.5s; }
+.e6 { top: 6%; left: 55%; color: var(--orange); font-size: 1.1rem; animation-delay: -2.5s; }
+
+@keyframes scintiller {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* ---------- Écrans ---------- */
+/* Cellulaire : le menu se place en colonne, comme dans un jeu */
+@media (max-width: 899px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+}
+
+/* Cellulaire peu haut : on resserre les espaces, jamais le texte */
+@media (max-width: 899px) and (max-height: 700px) {
+  .haut { padding-top: 0.5rem; }
+  .accueil { gap: 1rem; padding-top: 0.75rem; padding-bottom: 0.5rem; }
+  .pied { padding: 0.5rem 1rem; }
+}
+
+/* Très petit écran : seul le grand titre rapetisse un peu */
+@media (max-width: 339px) {
+  .titre { font-size: 3.2rem; }
+}
+
+/* Très grands écrans : tout grossit un peu, comme un zoom */
+@media (min-width: 2000px) { html { font-size: 112.5%; } }
+@media (min-width: 2400px) { html { font-size: 125%; } }
+@media (min-width: 3200px) { html { font-size: 150%; } }
+
+/* Si l'appareil demande moins d'animations, tout reste immobile */
+@media (prefers-reduced-motion: reduce) {
+  .lettre,
+  .etoile,
+  .curseur,
+  .coeur {
+    animation: none;
+  }
+  .c1 { opacity: 1; }
+}
