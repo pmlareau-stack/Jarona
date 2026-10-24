@@ -35,12 +35,18 @@ Lis ce fichier au complet avant chaque changement.
 | Accueil | `index.html` | `en/index.html` | titre, YouTube, menu, radio |
 | Mes jeux | `jeux.html` | `en/games.html` | la liste des jeux de Fakefile |
 | Esquive les pétales | `jeux/petales.html` | `en/games/petals.html` | le premier jeu (`jeux/petales.js`, partagé) |
+| Kris contre le Chevalier | `jeux/chevalier.html` | `en/games/knight.html` | labyrinthe : Kris ferme les fontaines noires, fuit le Roaring Knight, l'épée des coins le rend faible (`jeux/chevalier.js`, partagé) |
 | Mes dessins | `dessins.html` | `en/drawings.html` | galerie + trombone 📎 (`dessins.js`) |
 | Mes idées | `idees.html` | `en/ideas.html` | le blogue (`idees.js`) |
 
 - **Nouveau jeu** : une page `jeux/<nom>.html` et `en/games/<name>.html`, son code dans `jeux/<nom>.js` (un seul
   fichier pour les deux langues, comme `petales.js`), une carte dans `jeux.html` et `en/games.html`, les deux
   adresses dans `sitemap.xml`. Tout est dessiné en code ou avec les dessins de Fakefile.
+- Les personnages (Kris, le Chevalier, le cœur) sont des dessins en pixels faits maison, dans des grilles de lettres
+  au début du fichier du jeu (ex. `KRIS_A`, `CHEVALIER`) : pour changer un dessin, change les lettres, jamais une
+  image copiée du jeu. Pour vérifier un jeu dans la console : `JaronaChevalier.etat()`.
+- Les flèches à l'écran (`.manette`) s'affichent seulement sur les écrans tactiles.
+- Vérifier les 21 écrans : `node outils/ecrans.mjs https://jarona.ca <dossier>` (seul 320 × 568 peut défiler).
 - **Dessins et idées** : Fakefile les ajoute lui-même sur le site, avec le trombone ou le bouton « Écrire ».
   Ils ne sont pas dans le dépôt : ils sont gardés dans Vercel Blob par les adresses `api/`. Pas besoin de toi.
 

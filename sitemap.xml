@@ -50,4 +50,14 @@
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/idees"/>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/ideas"/>
   </url>
+  <url>
+    <loc>https://jarona.ca/jeux/chevalier</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux/chevalier"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games/knight"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/en/games/knight</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux/chevalier"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games/knight"/>
+  </url>
 </urlset>

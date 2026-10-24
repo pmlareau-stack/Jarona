@@ -21,7 +21,7 @@ const ECRANS = [
   ["ordi-2560", 2560, 1300, false], ["ordi-2560-1440", 2560, 1440, false], ["ultra-3440", 3440, 1340, false],
   ["4k-3840", 3840, 1960, false],
 ];
-const PAGES = ["/", "/en", "/jeux", "/jeux/petales", "/dessins", "/idees", "/en/games", "/en/games/petals"];
+const PAGES = ["/", "/en", "/jeux", "/jeux/petales", "/jeux/chevalier", "/dessins", "/idees", "/en/games", "/en/games/petals", "/en/games/knight"];
 
 const nav = await chromium.launch({ channel: "chrome", headless: true });
 const problemes = [];
@@ -51,7 +51,8 @@ for (const [nom, w, h, tactile] of ECRANS) {
         entete: entete ? entete.height : 0,
         accueil: r(".accueil")?.height ?? null,
         radio: r("#radio")?.height ?? null,
-        arene: r(".arene") ? r(".arene").bottom + window.scrollY : null,
+        arene: r(".arene, .arene-labyrinthe") ? r(".arene, .arene-labyrinthe").bottom + window.scrollY : null,
+        manette: r(".manette") && r(".manette").height ? r(".manette").bottom + window.scrollY : null,
         h1: r("h1") ? r("h1").right - document.documentElement.clientWidth : 0,
         police: getComputedStyle(document.documentElement).fontSize,
       };
@@ -63,18 +64,19 @@ for (const [nom, w, h, tactile] of ECRANS) {
       pb.push(`accueil ${Math.round(m.accueil + m.entete)} > ${m.H}`);
     }
     if (m.radio !== null && m.radio > m.H + 1) pb.push(`radio ${Math.round(m.radio)} > ${m.H}`);
-    if (["/jeux", "/en/games", "/jeux/petales", "/en/games/petals"].includes(p) && m.pageH > m.H + 1) {
+    if (["/jeux", "/en/games", "/jeux/petales", "/en/games/petals", "/jeux/chevalier", "/en/games/knight"].includes(p) && m.pageH > m.H + 1) {
       pb.push(`page ${m.pageH} > ${m.H}`);
     }
     if (m.arene !== null && m.arene > m.H + 1) pb.push(`jeu coupé (${Math.round(m.arene)} > ${m.H})`);
+    if (m.manette !== null && m.manette > m.H + 1) pb.push(`flèches coupées (${Math.round(m.manette)} > ${m.H})`);
     if (pb.length) problemes.push(`${nom} ${w}x${h} ${p} : ${pb.join(", ")}`);
 
     if (p === "/") {
       await page.screenshot({ path: path.join(sortie, `${String(w).padStart(4, "0")}x${h}-${nom}-accueil.png`) });
       console.log(`${nom.padEnd(15)} ${w}x${h}  police ${m.police}`);
     }
-    if (p === "/jeux/petales" && (w === 390 || w === 1707)) {
-      await page.screenshot({ path: path.join(sortie, `${String(w).padStart(4, "0")}x${h}-${nom}-petales.png`) });
+    if ((p === "/jeux/petales" || p === "/jeux/chevalier") && (w === 390 || w === 375 || w === 1707)) {
+      await page.screenshot({ path: path.join(sortie, `${String(w).padStart(4, "0")}x${h}-${nom}-${p.split("/").pop()}.png`) });
     }
   }
   await ctx.close();

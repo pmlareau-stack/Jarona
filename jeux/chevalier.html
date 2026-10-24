@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kris contre le Chevalier — Jarona</title>
+  <meta name="description" content="Un jeu de Fakefile : Kris ferme les fontaines noires du labyrinthe et fuit le Chevalier.">
+  <link rel="canonical" href="https://jarona.ca/jeux/chevalier">
+  <link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux/chevalier">
+  <link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games/knight">
+  <link rel="alternate" hreflang="x-default" href="https://jarona.ca/jeux/chevalier">
+  <meta name="theme-color" content="#07050f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="haut haut-page">
+    <a class="langue" href="/jeux">← Mes jeux</a>
+    <a class="langue" href="/en/games/knight" hreflang="en" lang="en">English</a>
+  </header>
+
+  <main class="page page-jeu">
+    <h1 class="titre-jeu">Kris contre le Chevalier</h1>
+
+    <p class="hud">
+      <span id="vies"></span>
+      <span id="score"></span>
+      <span id="record"></span>
+      <span id="niveau"></span>
+    </p>
+
+    <canvas class="arene-labyrinthe" id="labyrinthe" width="448" height="496" aria-label="Le jeu : Kris ferme les fontaines noires et fuit le Chevalier"></canvas>
+
+    <!-- Les flèches, pour jouer au doigt sur un cellulaire ou une tablette -->
+    <div class="manette">
+      <button class="fleche fleche-haut" type="button" data-dir="haut" aria-label="Haut">▲</button>
+      <button class="fleche fleche-gauche" type="button" data-dir="gauche" aria-label="Gauche">◀</button>
+      <button class="fleche fleche-droite" type="button" data-dir="droite" aria-label="Droite">▶</button>
+      <button class="fleche fleche-bas" type="button" data-dir="bas" aria-label="Bas">▼</button>
+    </div>
+
+    <p class="aide-jeu">* Flèches du clavier, ou glisse ton doigt sur le jeu.</p>
+  </main>
+
+  <footer class="pied">
+    Fait par Fakefile · 2026
+  </footer>
+
+  <script src="/jeux/chevalier.js"></script>
+</body>
+</html>

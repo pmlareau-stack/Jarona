@@ -588,6 +588,75 @@ body {
   cursor: pointer;
 }
 
+/* Le labyrinthe (448 × 496 points de jeu) tient dans l'écran */
+.arene-labyrinthe {
+  display: block;
+  width: min(100%, 448px, calc((100vh - 17rem) * 0.9032));
+  width: min(100%, 448px, calc((100svh - 17rem) * 0.9032));
+  aspect-ratio: 448 / 496;
+  border: 4px solid var(--texte);
+  background: #05030d;
+  touch-action: none;
+  cursor: pointer;
+}
+
+/* Les flèches à l'écran : seulement sur les écrans tactiles */
+.manette {
+  display: none;
+  grid-template-columns: repeat(3, 3.25rem);
+  grid-template-rows: repeat(3, 2.75rem);
+  gap: 0.25rem;
+}
+
+.fleche {
+  min-height: 2.75rem;
+  border: 3px solid var(--texte);
+  background: #000;
+  color: var(--jaune);
+  font: inherit;
+  font-size: 1.3rem;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.fleche:active {
+  background: var(--jaune);
+  color: #1b1340;
+}
+
+.fleche-haut { grid-area: 1 / 2; }
+.fleche-gauche { grid-area: 2 / 1; }
+.fleche-droite { grid-area: 2 / 3; }
+.fleche-bas { grid-area: 3 / 2; }
+
+@media (hover: none) and (pointer: coarse) {
+  .manette { display: grid; }
+  /* Les flèches parlent d'elles-mêmes : la ligne « Flèches du clavier » ne sert pas au doigt */
+  .manette + .aide-jeu { display: none; }
+  .arene-labyrinthe {
+    width: min(100%, 448px, calc((100vh - 26rem) * 0.9032));
+    width: min(100%, 448px, calc((100svh - 26rem) * 0.9032));
+  }
+}
+
+/* Écran tactile peu haut : les 4 flèches sur une seule ligne */
+@media (hover: none) and (pointer: coarse) and (max-height: 700px) {
+  .manette {
+    grid-template-columns: repeat(4, 3.25rem);
+    grid-template-rows: 2.75rem;
+  }
+  .fleche-gauche { grid-area: 1 / 1; }
+  .fleche-haut { grid-area: 1 / 2; }
+  .fleche-bas { grid-area: 1 / 3; }
+  .fleche-droite { grid-area: 1 / 4; }
+  .arene-labyrinthe {
+    width: min(100%, 448px, calc((100vh - 21rem) * 0.9032));
+    width: min(100%, 448px, calc((100svh - 21rem) * 0.9032));
+  }
+}
+
 .aide-jeu {
   margin: 0;
   font-size: 1.05rem;

@@ -38,6 +38,8 @@ Si Vercel affiche un déploiement « Blocked », c'est l'auteur du commit qui n'
 | `index.html`, `en/index.html` | accueil (titre, YouTube, menu, radio) |
 | `jeux.html`, `en/games.html` | Mes jeux |
 | `jeux/petales.html`, `en/games/petals.html`, `jeux/petales.js` | le jeu « Esquive les pétales » |
+| `jeux/chevalier.html`, `en/games/knight.html`, `jeux/chevalier.js` | le jeu « Kris contre le Chevalier » (labyrinthe) |
+| `outils/ecrans.mjs` | vérification des 21 écrans PM (pas envoyé en ligne) |
 | `dessins.html`, `en/drawings.html`, `dessins.js` | Mes dessins (galerie + trombone) |
 | `idees.html`, `en/ideas.html`, `idees.js` | Mes idées (blogue) |
 | `coffre.js` | demande et retient le code secret |
