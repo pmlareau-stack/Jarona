@@ -75,6 +75,9 @@ body {
   gap: 1.75rem;
   width: 100%;
   max-width: 44rem;
+  /* L'accueil remplit le premier écran, sous le bouton de langue */
+  min-height: calc(100vh - 3.5rem);
+  min-height: calc(100svh - 3.5rem);
   margin: 0 auto;
   padding: 2.5rem 1rem 1rem;
 }
@@ -186,16 +189,17 @@ body {
   width: 1.4em;
   color: var(--coeur);
   opacity: 0;
-  animation: viser 4.5s steps(1) infinite;
+  animation: viser 6s steps(1) infinite;
 }
 
 .c1 { animation-delay: 0s; }
 .c2 { animation-delay: 1.5s; }
 .c3 { animation-delay: 3s; }
+.c4 { animation-delay: 4.5s; }
 
 @keyframes viser {
   0% { opacity: 1; }
-  33.3% { opacity: 0; }
+  25% { opacity: 0; }
 }
 
 /* Un cœur qui ne bouge pas (quand il n'y a qu'un seul choix) */
@@ -208,6 +212,140 @@ body {
   color: inherit;
 }
 
+/* ---------- La boîte à musique ---------- */
+.musique {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 44rem;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.titre-section {
+  margin: 0;
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  font-weight: 700;
+  color: var(--jaune);
+  text-align: center;
+}
+
+.ecran-musique {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 4px solid var(--texte);
+  background: #000;
+  font-size: 1.25rem;
+}
+
+.ecran-musique p {
+  margin: 0;
+}
+
+.ecran-musique iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.en-cours {
+  min-height: 1.5em;
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--jaune);
+}
+
+.pistes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pistes button {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.6rem;
+  border: 3px solid var(--texte-doux);
+  background: #000;
+  color: var(--texte);
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Le cœur rouge montre la musique qui joue */
+.pistes button::before {
+  content: "❤";
+  flex: none;
+  color: var(--coeur);
+  opacity: 0;
+}
+
+.pistes button:hover,
+.pistes button:focus-visible {
+  border-color: var(--texte);
+  color: var(--jaune);
+}
+
+.pistes button[aria-pressed="true"] {
+  border-color: var(--jaune);
+  color: var(--jaune);
+}
+
+.pistes button[aria-pressed="true"]::before {
+  opacity: 1;
+}
+
+.credit {
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--texte-doux);
+}
+
+.credit a {
+  color: var(--jaune);
+}
+
+/* Ordinateur : le lecteur à gauche, la liste à droite */
+@media (min-width: 900px) {
+  .musique {
+    max-width: 64rem;
+  }
+
+  .boite-musique {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .pistes {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+
 .pied {
   position: relative;
   z-index: 1;
@@ -218,9 +356,14 @@ body {
 }
 
 /* ---------- Les étoiles ---------- */
+/* Les étoiles restent dans le premier écran seulement */
 .ciel {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  height: 100svh;
   overflow: hidden;
   pointer-events: none;
 }
@@ -259,6 +402,18 @@ body {
   .haut { padding-top: 0.5rem; }
   .accueil { gap: 1rem; padding-top: 0.75rem; padding-bottom: 0.5rem; }
   .pied { padding: 0.5rem 1rem; }
+  .musique { gap: 0.6rem; padding: 1rem; }
+  .pistes { gap: 0.35rem; }
+  /* Le cœur montre déjà la musique qui joue : la ligne reste pour les lecteurs d'écran seulement */
+  .en-cours {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 }
 
 /* Très petit écran : seul le grand titre rapetisse un peu */
