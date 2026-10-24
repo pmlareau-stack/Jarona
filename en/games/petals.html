@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dodge the petals — Jarona</title>
+  <meta name="description" content="A game by Fakefile: move the heart and avoid Flowery's petals.">
+  <link rel="canonical" href="https://jarona.ca/en/games/petals">
+  <link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux/petales">
+  <link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games/petals">
+  <link rel="alternate" hreflang="x-default" href="https://jarona.ca/jeux/petales">
+  <meta name="theme-color" content="#07050f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="haut haut-page">
+    <a class="langue" href="/en/games">← My games</a>
+    <a class="langue" href="/jeux/petales" hreflang="fr" lang="fr">Français</a>
+  </header>
+
+  <main class="page page-jeu">
+    <h1 class="titre-jeu">Dodge the petals</h1>
+
+    <p class="hud">
+      <span id="vies"></span>
+      <span id="temps"></span>
+      <span id="record"></span>
+    </p>
+
+    <canvas class="arene" id="arene" width="480" height="480" aria-label="The game: a red heart dodging petals"></canvas>
+
+    <p class="aide-jeu">* Arrow keys, or slide your finger on the game.</p>
+  </main>
+
+  <footer class="pied">
+    Made by Fakefile · 2026
+  </footer>
+
+  <script src="/jeux/petales.js"></script>
+</body>
+</html>

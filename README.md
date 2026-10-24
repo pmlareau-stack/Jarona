@@ -22,22 +22,39 @@ Le site de Fakefile, construit par lui-même avec ChatGPT. Français + anglais.
 Si Vercel affiche un déploiement « Blocked », c'est l'auteur du commit qui n'est pas reconnu. Fusionner avec
 « Create a merge commit » : le commit est alors au nom de PM.
 
+## Code secret et stockage (dessins, idées)
+
+- Les dessins (trombone 📎) et les idées (blogue) sont gardés dans **Vercel Blob** (projet `jarona`, onglet Storage).
+- Seul quelqu'un qui connaît le **code secret** peut ajouter ou retirer. Le code est la variable `JARONA_CODE`
+  dans Vercel (Settings → Environment Variables). PM le choisit et le change là ; il n'est écrit dans aucun fichier.
+- Sur un appareil, le code est retenu après la première fois. Le bouton « 🔒 Verrouiller » le fait oublier.
+- Les photos sont réduites à 1600 px et refaites en WebP sur l'appareil : l'endroit où la photo a été prise
+  (GPS) n'est jamais envoyé.
+
 ## Fichiers
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | accueil en français |
-| `en/index.html` | accueil en anglais |
+| `index.html`, `en/index.html` | accueil (titre, YouTube, menu, radio) |
+| `jeux.html`, `en/games.html` | Mes jeux |
+| `jeux/petales.html`, `en/games/petals.html`, `jeux/petales.js` | le jeu « Esquive les pétales » |
+| `dessins.html`, `en/drawings.html`, `dessins.js` | Mes dessins (galerie + trombone) |
+| `idees.html`, `en/ideas.html`, `idees.js` | Mes idées (blogue) |
+| `coffre.js` | demande et retient le code secret |
+| `api/` | adresses du serveur : `code`, `dessins`, `idees` (Vercel Functions + Blob) |
+| `radio.js` | la radio de Flowery |
 | `style.css` | couleurs et look (les couleurs sont en haut) |
 | `404.html` | page « Oups » quand une adresse n'existe pas |
-| `images/` | images du site (à créer au besoin) |
-| `robots.txt`, `sitemap.xml` | pour Google |
+| `robots.txt`, `sitemap.xml` | pour Google (Search Console : propriété Domaine jarona.ca, compte pmlareau@gmail.com) |
 | `vercel.json` | adresses propres (`/jeux` au lieu de `/jeux.html`) |
+| `outils/serveur-local.mjs` | serveur d'essai sur l'ordinateur (pas envoyé en ligne) |
 
 ## Voir le site sur l'ordinateur
 
 ```bash
-python -m http.server 3960
+npm install
+node outils/serveur-local.mjs
 ```
 
-Lancer depuis ce dossier, puis ouvrir http://localhost:3960.
+Puis ouvrir http://localhost:3960. Le code d'essai local est `essai-local` ; les dessins et idées d'essai vont dans
+`.stockage-local/` (jamais envoyé en ligne).

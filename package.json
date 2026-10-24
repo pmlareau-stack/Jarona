@@ -1,0 +1,14 @@
+{
+  "name": "jarona",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.8.1"
+  },
+  "overrides": {
+    "zod": "4.6.6"
+  }
+}

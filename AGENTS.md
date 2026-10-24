@@ -28,6 +28,22 @@ Lis ce fichier au complet avant chaque changement.
 - **Jamais** de fichier MP3 ou de son du jeu copié sur le site : Toby Fox demande de ne pas re-téléverser sa musique.
 - Garder la ligne « © Toby Fox / Materia Collective » avec le lien Bandcamp.
 
+## Les pages
+
+| Page | Français | Anglais | Ce qu'elle fait |
+|---|---|---|---|
+| Accueil | `index.html` | `en/index.html` | titre, YouTube, menu, radio |
+| Mes jeux | `jeux.html` | `en/games.html` | la liste des jeux de Fakefile |
+| Esquive les pétales | `jeux/petales.html` | `en/games/petals.html` | le premier jeu (`jeux/petales.js`, partagé) |
+| Mes dessins | `dessins.html` | `en/drawings.html` | galerie + trombone 📎 (`dessins.js`) |
+| Mes idées | `idees.html` | `en/ideas.html` | le blogue (`idees.js`) |
+
+- **Nouveau jeu** : une page `jeux/<nom>.html` et `en/games/<name>.html`, son code dans `jeux/<nom>.js` (un seul
+  fichier pour les deux langues, comme `petales.js`), une carte dans `jeux.html` et `en/games.html`, les deux
+  adresses dans `sitemap.xml`. Tout est dessiné en code ou avec les dessins de Fakefile.
+- **Dessins et idées** : Fakefile les ajoute lui-même sur le site, avec le trombone ou le bouton « Écrire ».
+  Ils ne sont pas dans le dépôt : ils sont gardés dans Vercel Blob par les adresses `api/`. Pas besoin de toi.
+
 ## Le site est en français ET en anglais
 
 - Chaque page existe **deux fois** : en français à la racine, en anglais dans le dossier `en/`.
@@ -40,7 +56,11 @@ Lis ce fichier au complet avant chaque changement.
 
 ## Comment le site fonctionne
 
-- Site **tout simple** : des fichiers HTML et un fichier CSS. Aucun outil à installer, aucune étape de compilation.
+- Site **tout simple** : des fichiers HTML, un fichier CSS et un peu de JavaScript. Aucune étape de compilation.
+- Le dossier `api/` (avec `package.json`) fait marcher le trombone et le blogue : il garde les dessins et les idées
+  dans Vercel Blob et vérifie le code secret. `coffre.js` demande le code sur la page.
+- Pour essayer sur l'ordinateur : `node outils/serveur-local.mjs`, puis http://localhost:3960
+  (le code d'essai local est `essai-local` ; il ne marche pas en ligne).
 - `style.css` = les couleurs et le look. Les couleurs sont en haut du fichier : change-les là.
 - Ajoute un lien vers chaque nouvelle page dans le menu de l'accueil (dans les deux langues).
 - Les images vont dans le dossier `images/` (partagé par les deux langues). Garde-les petites (moins de 500 Ko
@@ -68,8 +88,11 @@ ni dans le dépôt :
 
 Et aussi, **jamais** :
 
-- de formulaire, de boîte de commentaires, de clavardage ou de livre d'or (personne ne doit pouvoir écrire à
-  Fakefile par le site) ;
+- de formulaire pour les visiteurs, de boîte de commentaires, de clavardage ou de livre d'or (personne ne doit
+  pouvoir écrire à Fakefile par le site). Les seules fenêtres pour écrire sont celles de Fakefile (trombone et
+  blogue), protégées par le code secret ;
+- d'affaiblir le code secret : il est dans la variable `JARONA_CODE` de Vercel, jamais dans un fichier, et chaque
+  adresse `api/` qui ajoute ou retire quelque chose doit appeler `verifierCode` ;
 - de publicité, de suivi (Google Analytics, pixels…), de vente ou de lien d'achat ;
 - de script ou d'outil venant d'un autre site, sauf les polices Google Fonts, les vidéos YouTube de sa chaîne et
   le lecteur YouTube de la radio ;
@@ -83,4 +106,4 @@ Si tu as un doute, demande à son père.
 ## À ne pas toucher
 
 - Ce fichier `AGENTS.md` : seulement si son père le demande.
-- `vercel.json` : seulement si c'est vraiment nécessaire.
+- `vercel.json`, `package.json`, le dossier `api/` et `coffre.js` : seulement si c'est vraiment nécessaire.

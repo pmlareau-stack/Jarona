@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes idées — Jarona</title>
+  <meta name="description" content="Le blogue de Fakefile : ses idées, sur Jarona.">
+  <link rel="canonical" href="https://jarona.ca/idees">
+  <link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/idees">
+  <link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/ideas">
+  <link rel="alternate" hreflang="x-default" href="https://jarona.ca/idees">
+  <meta name="theme-color" content="#07050f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="haut haut-page">
+    <a class="langue" href="/">← Accueil</a>
+    <a class="langue" href="/en/ideas" hreflang="en" lang="en">English</a>
+  </header>
+
+  <main class="page">
+    <h1 class="titre-page">❤ Mes idées</h1>
+    <p class="intro">* Le blogue de Fakefile. Ses idées, ses histoires, ce qu'il pense.</p>
+
+    <!-- Écrire : seulement pour Fakefile, avec le code secret -->
+    <div class="actions">
+      <button class="bouton" id="ecrire" type="button">✏️ Écrire une idée</button>
+      <button class="bouton-petit" id="verrouiller" type="button" hidden>🔒 Verrouiller</button>
+    </div>
+
+    <p class="etat" id="etat" aria-live="polite"></p>
+    <div class="liste-idees" id="liste-idees"></div>
+  </main>
+
+  <dialog class="dialogue-boite" id="dialogue-idee">
+    <form id="form-idee">
+      <h2>✏️ Nouvelle idée</h2>
+      <label>Titre
+        <input name="titre" maxlength="100" autocomplete="off">
+      </label>
+      <label>Ton texte
+        <textarea name="texte" maxlength="5000" rows="8"></textarea>
+      </label>
+      <p class="rappel">* Rappel&nbsp;: pas de nom de famille, d'adresse ni d'école.</p>
+      <p class="erreur" id="erreur-idee" aria-live="polite"></p>
+      <div class="boutons">
+        <button class="bouton-petit" id="annuler-idee" type="button">Annuler</button>
+        <button class="bouton" id="sauver-idee" type="submit">Sauvegarder</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="pied">
+    Fait par Fakefile · 2026
+  </footer>
+
+  <script src="/coffre.js"></script>
+  <script src="/idees.js"></script>
+</body>
+</html>

@@ -10,4 +10,44 @@
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/"/>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en"/>
   </url>
+  <url>
+    <loc>https://jarona.ca/jeux</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/en/games</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/jeux/petales</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux/petales"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games/petals"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/en/games/petals</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux/petales"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games/petals"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/dessins</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/dessins"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/drawings"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/en/drawings</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/dessins"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/drawings"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/idees</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/idees"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/ideas"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/en/ideas</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/idees"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/ideas"/>
+  </url>
 </urlset>

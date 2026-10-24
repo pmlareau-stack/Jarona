@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes dessins — Jarona</title>
+  <meta name="description" content="Les dessins de Fakefile, sur Jarona.">
+  <link rel="canonical" href="https://jarona.ca/dessins">
+  <link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/dessins">
+  <link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/drawings">
+  <link rel="alternate" hreflang="x-default" href="https://jarona.ca/dessins">
+  <meta name="theme-color" content="#07050f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="haut haut-page">
+    <a class="langue" href="/">← Accueil</a>
+    <a class="langue" href="/en/drawings" hreflang="en" lang="en">English</a>
+  </header>
+
+  <main class="page">
+    <h1 class="titre-page">❤ Mes dessins</h1>
+    <p class="intro">* Ici, Fakefile montre ses dessins.</p>
+
+    <!-- Le trombone : seulement pour Fakefile, avec le code secret -->
+    <div class="actions">
+      <button class="bouton" id="ajouter" type="button">📎 Ajouter un dessin</button>
+      <button class="bouton-petit" id="verrouiller" type="button" hidden>🔒 Verrouiller</button>
+    </div>
+
+    <p class="etat" id="etat" aria-live="polite"></p>
+    <ul class="galerie" id="galerie"></ul>
+  </main>
+
+  <dialog class="dialogue-boite" id="dialogue-dessin">
+    <form id="form-dessin">
+      <h2>📎 Nouveau dessin</h2>
+      <label>Titre (si tu veux)
+        <input name="titre" maxlength="80" autocomplete="off">
+      </label>
+      <label class="choisir">Choisis ton dessin
+        <input name="fichier" type="file" accept="image/*">
+      </label>
+      <img class="apercu" id="apercu" alt="" hidden>
+      <p class="rappel">* Rappel&nbsp;: pas de photo de ton visage, pas de nom ni d'adresse.</p>
+      <p class="erreur" id="erreur-dessin" aria-live="polite"></p>
+      <div class="boutons">
+        <button class="bouton-petit" id="annuler-dessin" type="button">Annuler</button>
+        <button class="bouton" id="sauver-dessin" type="submit">Sauvegarder</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="pied">
+    Fait par Fakefile · 2026
+  </footer>
+
+  <script src="/coffre.js"></script>
+  <script src="/dessins.js"></script>
+</body>
+</html>
