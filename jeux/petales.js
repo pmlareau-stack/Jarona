@@ -168,12 +168,37 @@
     majHud();
   }
 
-  function dessinerCoeur(x, y, s) {
-    ctx.beginPath();
-    ctx.moveTo(x, y + s * 0.9);
-    ctx.bezierCurveTo(x - s * 1.4, y - s * 0.1, x - s * 0.6, y - s * 1.1, x, y - s * 0.35);
-    ctx.bezierCurveTo(x + s * 0.6, y - s * 1.1, x + s * 1.4, y - s * 0.1, x, y + s * 0.9);
-    ctx.fill();
+  // Le cœur en pixels, comme une âme de jeu rétro : chaque « X » est un carré rouge
+  var COEUR_PIXELS = [
+    ".XXX...XXX.",
+    "XXXXX.XXXXX",
+    "XXXXXXXXXXX",
+    "XXXXXXXXXXX",
+    "XXXXXXXXXXX",
+    ".XXXXXXXXX.",
+    "..XXXXXXX..",
+    "...XXXXX...",
+    "....XXX....",
+    ".....X.....",
+  ];
+
+  function dessinerCoeur(x, y) {
+    // On dessine en vrais pixels de l'écran pour que les carrés restent nets
+    var echelle = canevas.width / L;
+    var cellule = Math.max(2, Math.round(2.2 * echelle));
+    var colonnes = COEUR_PIXELS[0].length;
+    var gauche = Math.round(x * echelle - (colonnes * cellule) / 2);
+    var haut = Math.round(y * echelle - (COEUR_PIXELS.length * cellule) / 2);
+
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.fillStyle = "#ff0000";
+    COEUR_PIXELS.forEach(function (ligne, rangee) {
+      for (var col = 0; col < ligne.length; col++) {
+        if (ligne[col] === "X") ctx.fillRect(gauche + col * cellule, haut + rangee * cellule, cellule, cellule);
+      }
+    });
+    ctx.restore();
   }
 
   function dessinerPetale(p) {
@@ -210,10 +235,7 @@
 
     // Le cœur clignote quand il vient d'être touché
     var visible = invincible === 0 || Math.floor(invincible * 10) % 2 === 0;
-    if (visible) {
-      ctx.fillStyle = "#ff2a3c";
-      dessinerCoeur(coeur.x, coeur.y, coeur.r);
-    }
+    if (visible) dessinerCoeur(coeur.x, coeur.y);
 
     if (etat === "attente") {
       ecrire([{ texte: mots.debut1 }, { texte: mots.debut2, couleur: "#ffd23c", taille: 20 }]);

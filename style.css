@@ -98,11 +98,12 @@ body {
   animation: sauter 2.4s ease-in-out infinite;
 }
 
-.l1 { color: var(--rose); animation-delay: 0s; }
-.l2 { color: var(--jaune); animation-delay: 0.15s; }
-.l3 { color: var(--bleu); animation-delay: 0.3s; }
-.l4 { color: var(--vert); animation-delay: 0.45s; }
-.l5 { color: var(--mauve); animation-delay: 0.6s; }
+/* Les lettres de JARONA : jaune et orange, une sur deux */
+.l1 { color: var(--jaune); animation-delay: 0s; }
+.l2 { color: var(--orange); animation-delay: 0.15s; }
+.l3 { color: var(--jaune); animation-delay: 0.3s; }
+.l4 { color: var(--orange); animation-delay: 0.45s; }
+.l5 { color: var(--jaune); animation-delay: 0.6s; }
 .l6 { color: var(--orange); animation-delay: 0.75s; }
 
 @keyframes sauter {
