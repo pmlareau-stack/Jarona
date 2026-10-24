@@ -19,10 +19,10 @@ Lis ce fichier au complet avant chaque changement.
 - Fais un petit changement à la fois. Il veut voir son site bouger vite.
 - Laisse-le décider des idées, des couleurs et des textes. Propose, ne décide pas à sa place.
 
-## La boîte à musique de Flowery
+## La radio de Flowery
 
-- Sur l'accueil, 10 musiques officielles de Deltarune (chapitre 5) jouent dans le lecteur YouTube officiel de
-  Toby Fox (`musique.js`, boutons avec `data-video`). Le lecteur ne se charge qu'au clic.
+- Sur l'accueil, la radio joue 10 musiques officielles de Deltarune (chapitre 5) dans le lecteur YouTube officiel de
+  Toby Fox (`radio.js`, section `#radio`, boutons avec `data-video`). Le lecteur ne se charge qu'au clic.
 - Pour changer une musique : remplacer le `data-video` par l'identifiant d'une vidéo de la chaîne officielle
   **@toby-fox-music** seulement, dans les deux langues. Garder les titres officiels en anglais.
 - **Jamais** de fichier MP3 ou de son du jeu copié sur le site : Toby Fox demande de ne pas re-téléverser sa musique.
@@ -72,7 +72,7 @@ Et aussi, **jamais** :
   Fakefile par le site) ;
 - de publicité, de suivi (Google Analytics, pixels…), de vente ou de lien d'achat ;
 - de script ou d'outil venant d'un autre site, sauf les polices Google Fonts, les vidéos YouTube de sa chaîne et
-  le lecteur YouTube de la boîte à musique ;
+  le lecteur YouTube de la radio ;
 - d'images, de musique ou de sons copiés de Deltarune, d'Undertale ou d'Internet (droits d'auteur). Les dessins de
   Fakefile, les images qu'il crée avec toi, les formes faites en CSS et ses propres vidéos sont parfaits ;
 - de contenu violent, effrayant ou méchant envers quelqu'un.

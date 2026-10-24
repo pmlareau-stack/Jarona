@@ -1,8 +1,8 @@
-// La boîte à musique de Flowery
+// La radio de Flowery
 // Quand on clique une musique, le lecteur YouTube officiel s'ouvre et la joue.
 // Les musiques restent sur la chaîne de Toby Fox : on ne copie jamais les fichiers sur le site.
 (function () {
-  var boite = document.getElementById("musique");
+  var boite = document.getElementById("radio");
   if (!boite) return;
 
   var ecran = boite.querySelector(".ecran-musique");
