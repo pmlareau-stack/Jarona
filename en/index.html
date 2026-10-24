@@ -55,12 +55,12 @@
       <span aria-hidden="true">▶</span> My YouTube channel
     </a>
 
-    <!-- Page menu. Fakefile can add pages whenever he wants. -->
-    <ul class="menu" aria-label="Menu">
-      <li><span class="coeur c1" aria-hidden="true">❤</span><a class="lien-menu" href="/en/games">My games</a></li>
-      <li><span class="coeur c2" aria-hidden="true">❤</span><a class="lien-menu" href="/en/drawings">My drawings</a></li>
-      <li><span class="coeur c3" aria-hidden="true">❤</span><a class="lien-menu" href="/en/ideas">My ideas</a></li>
-      <li><span class="coeur c4" aria-hidden="true">❤</span><a class="lien-menu" href="#radio">Radio</a></li>
+    <!-- Page menu: the heart follows the player (menu.js). Fakefile can add pages. -->
+    <ul class="menu menu-joueur" aria-label="Menu">
+      <li class="choisi"><span class="coeur" aria-hidden="true">❤</span><a class="lien-menu" href="/en/games">My games</a></li>
+      <li><span class="coeur" aria-hidden="true">❤</span><a class="lien-menu" href="/en/drawings">My drawings</a></li>
+      <li><span class="coeur" aria-hidden="true">❤</span><a class="lien-menu" href="/en/ideas">My ideas</a></li>
+      <li><span class="coeur" aria-hidden="true">❤</span><a class="lien-menu" href="#radio">Radio</a></li>
     </ul>
   </main>
 
@@ -101,5 +101,6 @@
   </footer>
 
   <script src="/radio.js"></script>
+  <script src="/menu.js"></script>
 </body>
 </html>

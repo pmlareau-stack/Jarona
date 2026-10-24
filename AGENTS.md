@@ -32,7 +32,7 @@ Lis ce fichier au complet avant chaque changement.
 
 | Page | Français | Anglais | Ce qu'elle fait |
 |---|---|---|---|
-| Accueil | `index.html` | `en/index.html` | titre, YouTube, menu, radio |
+| Accueil | `index.html` | `en/index.html` | titre, YouTube, menu (le cœur reste sur un choix et le joueur le bouge : flèches, Entrée ou Z, souris, doigt — `menu.js`), radio |
 | Mes jeux | `jeux.html` | `en/games.html` | la liste des jeux de Fakefile |
 | Esquive les pétales | `jeux/petales.html` | `en/games/petals.html` | le premier jeu (`jeux/petales.js`, partagé) |
 | Kris contre le Chevalier | `jeux/chevalier.html` | `en/games/knight.html` | labyrinthe : Kris ferme les fontaines noires, fuit le Roaring Knight, l'épée des coins le rend faible (`jeux/chevalier.js`, partagé) |

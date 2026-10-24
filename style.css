@@ -185,28 +185,34 @@ body {
   align-items: center;
 }
 
-/* Le cœur saute d'un choix à l'autre */
+/* Le cœur montre le choix du joueur (menu.js le bouge avec les flèches, la souris ou le doigt) */
 .coeur {
   width: 1.4em;
   color: var(--coeur);
   opacity: 0;
-  animation: viser 6s steps(1) infinite;
 }
 
-.c1 { animation-delay: 0s; }
-.c2 { animation-delay: 1.5s; }
-.c3 { animation-delay: 3s; }
-.c4 { animation-delay: 4.5s; }
-
-@keyframes viser {
-  0% { opacity: 1; }
-  25% { opacity: 0; }
+.menu-joueur li.choisi .coeur {
+  opacity: 1;
 }
 
-/* Un cœur qui ne bouge pas (quand il n'y a qu'un seul choix) */
+/* Comme dans un jeu : le choix est jaune, les autres sont blancs */
+.menu-joueur .lien-menu {
+  color: var(--texte);
+}
+
+.menu-joueur li.choisi .lien-menu {
+  color: var(--jaune);
+}
+
+/* Le cœur et la couleur montrent déjà le choix : pas besoin du cadre du clavier */
+.menu-joueur .lien-menu:focus-visible {
+  outline: none;
+}
+
+/* Un cœur qui ne bouge pas (page 404) */
 .coeur.fixe {
   opacity: 1;
-  animation: none;
 }
 
 .lien-menu {
@@ -855,9 +861,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .lettre,
   .etoile,
-  .curseur,
-  .coeur {
+  .curseur {
     animation: none;
   }
-  .c1 { opacity: 1; }
 }
