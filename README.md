@@ -9,6 +9,19 @@ Le site de Fakefile, construit par lui-même avec ChatGPT. Français + anglais.
 - **YouTube** : https://www.youtube.com/@fakefileYT
 - **Règles pour ChatGPT** : [AGENTS.md](AGENTS.md) (sécurité, façon de parler, deux langues, structure du site).
 
+## Brancher ChatGPT (PM le fait une seule fois)
+
+1. PM crée le 2e compte ChatGPT, à son nom (OpenAI exige 13 ans). Il faut un plan qui inclut Codex.
+2. Dans ChatGPT, PM ouvre **Codex** et connecte GitHub. À la question des dépôts : « Only select repositories »,
+   puis **Jarona seulement**.
+3. PM crée un environnement Codex pour `pmlareau-stack/Jarona`. Il n'y a rien à installer.
+4. Fakefile écrit ce qu'il veut, par exemple « Ajoute une page Mes jeux ». Codex lit `AGENTS.md` tout seul.
+5. Quand le résultat lui plaît : « Créer une PR » dans Codex, puis « Merge pull request » sur GitHub.
+   jarona.ca change environ une minute plus tard.
+
+Si Vercel affiche un déploiement « Blocked », c'est l'auteur du commit qui n'est pas reconnu. Fusionner avec
+« Create a merge commit » : le commit est alors au nom de PM.
+
 ## Fichiers
 
 | Fichier | Rôle |
