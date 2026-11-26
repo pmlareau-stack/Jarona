@@ -10,7 +10,7 @@ Mis à jour le 25 oct. 2026, à la fermeture de la séance.
 
 ## Claude peut faire (si PM le demande)
 
-- [ ] Image de partage : un lien jarona.ca envoyé par texto ou Messenger s'affiche encore sans image.
+- [x] 2026-11-26 : Image de partage : un lien jarona.ca envoyé par texto ou Messenger s'affiche maintenant avec une image (`partage.png` et `en/partage.png`, 1200 × 630 ; balises Open Graph et Twitter dans les 13 pages FR/EN + 404 ; 28eabba). Vérifié en ligne : images 200, balises dans le HTML servi, pages sans erreur.
 
 ## Fait
 
