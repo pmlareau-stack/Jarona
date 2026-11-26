@@ -23,3 +23,7 @@ Mis à jour le 25 oct. 2026, à la fermeture de la séance.
 - [x] JARONA en jaune et orange, cœur du jeu en pixels, cœur du menu contrôlé par le joueur
 - [x] Les 21 écrans vérifiés (seul 320 × 568 défile, permis)
 - [x] Règles pour ChatGPT à jour (AGENTS.md)
+
+## Sécurité — 25 nov. 2026
+
+- [x] 2026-11-25 : protections du navigateur en ligne sur jarona.ca (nosniff, cadre, provenance, permissions, CSP de base ; vercel.json, a7069fe). Demande de PM « Protection des 5 sites », vue par La Tour de bypml.com/pro/tour (note F → A). Vérifié en ligne : 6 protections sur 6, pages sans erreur au cell et à l'ordi.

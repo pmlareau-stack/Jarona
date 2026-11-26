@@ -4,7 +4,7 @@ import { createRequire } from "node:module";
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
-const require = createRequire("C:/Users/pmLareau/Documents/claude code/vrm-industries-platform/package.json");
+const require = createRequire("C:/Users/pmLareau/Documents/claude code/04 VRM Industries/vrm-industries-platform/package.json");
 const { chromium } = require("playwright-core");
 
 const [base, sortie] = process.argv.slice(2);
