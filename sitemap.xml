@@ -60,4 +60,14 @@
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/jeux/chevalier"/>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/games/knight"/>
   </url>
+  <url>
+    <loc>https://jarona.ca/undertale</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/undertale"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/undertale"/>
+  </url>
+  <url>
+    <loc>https://jarona.ca/en/undertale</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://jarona.ca/undertale"/>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://jarona.ca/en/undertale"/>
+  </url>
 </urlset>

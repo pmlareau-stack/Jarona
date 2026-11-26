@@ -21,7 +21,7 @@ const ECRANS = [
   ["ordi-2560", 2560, 1300, false], ["ordi-2560-1440", 2560, 1440, false], ["ultra-3440", 3440, 1340, false],
   ["4k-3840", 3840, 1960, false],
 ];
-const PAGES = ["/", "/en", "/jeux", "/jeux/petales", "/jeux/chevalier", "/dessins", "/idees", "/en/games", "/en/games/petals", "/en/games/knight"];
+const PAGES = ["/", "/en", "/jeux", "/jeux/petales", "/jeux/chevalier", "/dessins", "/idees", "/en/games", "/en/games/petals", "/en/games/knight", "/undertale", "/en/undertale"];
 
 const nav = await chromium.launch({ channel: "chrome", headless: true });
 const problemes = [];

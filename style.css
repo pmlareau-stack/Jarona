@@ -30,6 +30,9 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--police);
+  /* Sans ligatures : la police collait « fi » en une seule lettre (« Fakefile » devenait « FakeAle ») */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0;
   color: var(--texte);
   background: radial-gradient(ellipse at top, var(--fond-halo), var(--fond) 65%);
   background-color: var(--fond);
@@ -824,7 +827,10 @@ body {
 /* Cellulaire peu haut : on resserre les espaces, jamais le texte */
 @media (max-width: 899px) and (max-height: 700px) {
   .haut { padding-top: 0.5rem; }
-  .accueil { gap: 1rem; padding-top: 0.75rem; padding-bottom: 0.5rem; }
+  .accueil { gap: 0.75rem; padding-top: 0.75rem; padding-bottom: 0.5rem; }
+  .menu { row-gap: 0.25rem; }
+  .dialogue { padding: 0.75rem 1rem; line-height: 1.35; }
+  .youtube { padding-top: 0.4rem; padding-bottom: 0.4rem; }
   .pied { padding: 0.5rem 1rem; }
   .musique { gap: 0.6rem; padding: 1rem; }
   .pistes { gap: 0.35rem; }
@@ -864,4 +870,37 @@ body {
   .curseur {
     animation: none;
   }
+}
+
+/* ---------- La page « Musique d'Undertale » ---------- */
+/* Les boîtes à musique de cette page ne prennent pas tout l'écran */
+.musique-page {
+  min-height: 0;
+  max-width: none;
+  padding: 0;
+}
+
+/* Un seul bouton (le concert) : toute la largeur */
+.pistes-une {
+  grid-template-columns: 1fr;
+}
+
+.musique-page .ecran-musique p {
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* 101 chansons : la liste défile dans sa boîte, le lecteur reste en vue */
+.pistes-longues {
+  grid-template-columns: 1fr;
+  max-height: 22rem;
+  overflow-y: auto;
+  padding-right: 0.35rem;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--texte-doux) #000;
+}
+
+@media (min-width: 900px) {
+  .musique-page { max-width: none; }
+  .pistes-longues { max-height: 30rem; }
 }

@@ -28,6 +28,15 @@ Lis ce fichier au complet avant chaque changement.
 - **Jamais** de fichier MP3 ou de son du jeu copié sur le site : Toby Fox demande de ne pas re-téléverser sa musique.
 - Garder la ligne « © Toby Fox / Materia Collective » avec le lien Bandcamp.
 
+## La musique d'Undertale
+
+- Page `undertale.html` (jarona.ca/undertale) et `en/undertale.html` (jarona.ca/en/undertale), même `radio.js`.
+- **La bande sonore** : les 101 vidéos officielles de la liste « UNDERTALE Soundtrack » de **@toby-fox-music**
+  (`data-liste` sur la section : les chansons suivantes jouent toutes seules). Titres officiels en anglais.
+- **L'orchestre** : le « UNDERTALE 5th Anniversary Concert » de la chaîne officielle **@UNDERTALEOfficial**
+  (orchestre MUSIC Engine). Ce sont les deux seules chaînes permises. Jamais une vidéo de fan filmée en concert.
+- Garder les lignes « © Toby Fox / Materia Collective » (lien Bandcamp) et le lien vers @UNDERTALEOfficial.
+
 ## Les pages
 
 | Page | Français | Anglais | Ce qu'elle fait |
@@ -38,6 +47,7 @@ Lis ce fichier au complet avant chaque changement.
 | Kris contre le Chevalier | `jeux/chevalier.html` | `en/games/knight.html` | labyrinthe : Kris ferme les fontaines noires, fuit le Roaring Knight, l'épée des coins le rend faible (`jeux/chevalier.js`, partagé) |
 | Mes dessins | `dessins.html` | `en/drawings.html` | galerie + trombone 📎 (`dessins.js`) |
 | Mes idées | `idees.html` | `en/ideas.html` | le blogue (`idees.js`) |
+| Musique d'Undertale | `undertale.html` | `en/undertale.html` | les 101 chansons officielles + le concert d'orchestre (`radio.js`) |
 
 - **Nouveau jeu** : une page `jeux/<nom>.html` et `en/games/<name>.html`, son code dans `jeux/<nom>.js` (un seul
   fichier pour les deux langues, comme `petales.js`), une carte dans `jeux.html` et `en/games.html`, les deux

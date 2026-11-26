@@ -44,7 +44,8 @@ Si Vercel affiche un déploiement « Blocked », c'est l'auteur du commit qui n'
 | `idees.html`, `en/ideas.html`, `idees.js` | Mes idées (blogue) |
 | `coffre.js` | demande et retient le code secret |
 | `api/` | adresses du serveur : `code`, `dessins`, `idees` (Vercel Functions + Blob) |
-| `radio.js` | la radio de Flowery |
+| `undertale.html`, `en/undertale.html` | Musique d'Undertale : 101 chansons officielles (@toby-fox-music) + concert d'orchestre (@UNDERTALEOfficial) |
+| `radio.js` | les lecteurs YouTube : radio de Flowery et musique d'Undertale |
 | `style.css` | couleurs et look (les couleurs sont en haut) |
 | `404.html` | page « Oups » quand une adresse n'existe pas |
 | `robots.txt`, `sitemap.xml` | pour Google (Search Console : propriété Domaine jarona.ca, compte pmlareau@gmail.com) |

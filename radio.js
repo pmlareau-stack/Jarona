@@ -1,36 +1,64 @@
-// La radio de Flowery
+// La radio de Flowery et la musique d'Undertale
 // Quand on clique une musique, le lecteur YouTube officiel s'ouvre et la joue.
-// Les musiques restent sur la chaîne de Toby Fox : on ne copie jamais les fichiers sur le site.
+// Les musiques restent sur les chaînes officielles : on ne copie jamais les fichiers sur le site.
+// Chaque boîte « .musique » a son lecteur. Avec data-liste, les chansons suivantes de la liste jouent toutes seules.
+// Un seul lecteur joue à la fois : en ouvrir un ferme les autres.
 (function () {
-  var boite = document.getElementById("radio");
-  if (!boite) return;
+  var boites = Array.prototype.slice.call(document.querySelectorAll(".musique"));
+  if (!boites.length) return;
 
-  var ecran = boite.querySelector(".ecran-musique");
-  var enCours = boite.querySelector(".en-cours");
-  var boutons = boite.querySelectorAll(".pistes button");
-  var prefixe = boite.getAttribute("data-prefixe") || "";
+  var radios = boites.map(function (boite) {
+    var ecran = boite.querySelector(".ecran-musique");
+    return {
+      boite: boite,
+      ecran: ecran,
+      accueil: ecran ? Array.prototype.slice.call(ecran.childNodes).map(function (n) { return n.cloneNode(true); }) : [],
+      enCours: boite.querySelector(".en-cours"),
+      boutons: Array.prototype.slice.call(boite.querySelectorAll(".pistes button")),
+      prefixe: boite.getAttribute("data-prefixe") || "",
+      liste: boite.getAttribute("data-liste") || "",
+    };
+  });
 
-  function jouer(bouton) {
+  function arreter(radio) {
+    if (!radio.ecran || !radio.ecran.querySelector("iframe")) return;
+    radio.ecran.replaceChildren.apply(radio.ecran, radio.accueil.map(function (n) { return n.cloneNode(true); }));
+    radio.boutons.forEach(function (b) {
+      b.setAttribute("aria-pressed", "false");
+    });
+    if (radio.enCours) radio.enCours.textContent = "";
+  }
+
+  function jouer(radio, bouton) {
+    radios.forEach(function (autre) {
+      if (autre !== radio) arreter(autre);
+    });
+
     var video = bouton.getAttribute("data-video");
+    var adresse = "https://www.youtube-nocookie.com/embed/" + video + "?autoplay=1&rel=0&playsinline=1";
+    if (radio.liste) adresse += "&list=" + encodeURIComponent(radio.liste);
 
     var lecteur = document.createElement("iframe");
-    lecteur.src = "https://www.youtube-nocookie.com/embed/" + video + "?autoplay=1&rel=0&playsinline=1";
+    lecteur.src = adresse;
     lecteur.title = bouton.textContent.trim();
     lecteur.allow = "autoplay; encrypted-media; picture-in-picture";
     lecteur.allowFullscreen = true;
     lecteur.referrerPolicy = "strict-origin-when-cross-origin";
 
-    ecran.replaceChildren(lecteur);
+    radio.ecran.replaceChildren(lecteur);
 
-    boutons.forEach(function (b) {
+    radio.boutons.forEach(function (b) {
       b.setAttribute("aria-pressed", b === bouton ? "true" : "false");
     });
-    enCours.textContent = prefixe + " " + bouton.textContent.trim();
+    if (radio.enCours) radio.enCours.textContent = radio.prefixe + " " + bouton.textContent.trim();
   }
 
-  boutons.forEach(function (bouton) {
-    bouton.addEventListener("click", function () {
-      jouer(bouton);
+  radios.forEach(function (radio) {
+    if (!radio.ecran) return;
+    radio.boutons.forEach(function (bouton) {
+      bouton.addEventListener("click", function () {
+        jouer(radio, bouton);
+      });
     });
   });
 })();
