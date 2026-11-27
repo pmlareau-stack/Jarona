@@ -904,3 +904,37 @@ body {
   .musique-page { max-width: none; }
   .pistes-longues { max-height: 30rem; }
 }
+
+/* L'aide « Écouter sur un haut-parleur ou un Sonos » : fermée au départ, s'ouvre au clic */
+.aide-son {
+  border: 3px solid var(--texte-doux);
+  background: #000;
+  padding: 0.25rem 1rem;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.aide-son summary {
+  padding: 0.6rem 0;
+  color: var(--jaune);
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.aide-son ul {
+  margin: 0.25rem 0 0.75rem;
+  padding-left: 1.25rem;
+  color: var(--texte-doux);
+}
+
+.aide-son li + li {
+  margin-top: 0.4rem;
+}
+
+.aide-son strong {
+  color: var(--texte);
+}
+
+.aide-son a {
+  color: var(--jaune);
+}
