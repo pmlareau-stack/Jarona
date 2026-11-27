@@ -36,9 +36,9 @@ Lis ce fichier au complet avant chaque changement.
 - **L'orchestre** : le « UNDERTALE 5th Anniversary Concert » de la chaîne officielle **@UNDERTALEOfficial**
   (orchestre MUSIC Engine). Ce sont les deux seules chaînes permises. Jamais une vidéo de fan filmée en concert.
 - Garder les lignes « © Toby Fox / Materia Collective » (lien Bandcamp) et le lien vers @UNDERTALEOfficial.
-- L'aide « 🔊 Écouter sur un haut-parleur ou un Sonos » (sous les lecteurs) contient un lien vers TuneBlade, une app
-  payante pour Windows. C'est une **exception voulue par son père** (26 nov. 2026) à la règle « pas de lien d'achat » :
-  la garder telle quelle, et ne pas ajouter d'autre lien vers un logiciel ou un produit payant.
+- L'aide « 🔊 Écouter sur un haut-parleur ou un Sonos » (sous les lecteurs) contient un lien vers swyh-rs, une app
+  gratuite et libre (MIT) pour Windows qui envoie le son au Sonos, voulue par son père (27 nov. 2026, elle remplace
+  TuneBlade, payante). Ne jamais y mettre de lien vers un logiciel ou un produit payant.
 
 ## Les pages
 
@@ -112,8 +112,7 @@ Et aussi, **jamais** :
   blogue), protégées par le code secret ;
 - d'affaiblir le code secret : il est dans la variable `JARONA_CODE` de Vercel, jamais dans un fichier, et chaque
   adresse `api/` qui ajoute ou retire quelque chose doit appeler `verifierCode` ;
-- de publicité, de suivi (Google Analytics, pixels…), de vente ou de lien d'achat (seule exception : le lien TuneBlade
-  de la page Musique d'Undertale, voulu par son père) ;
+- de publicité, de suivi (Google Analytics, pixels…), de vente ou de lien d'achat ;
 - de script ou d'outil venant d'un autre site, sauf les polices Google Fonts, les vidéos YouTube de sa chaîne et
   le lecteur YouTube de la radio ;
 - d'images, de musique ou de sons copiés de Deltarune, d'Undertale ou d'Internet (droits d'auteur). Les dessins de
